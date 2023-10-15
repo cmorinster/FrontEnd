@@ -1,0 +1,23 @@
+.finished-poll-page {
+    text-align: center;
+    padding: 40px;
+  }
+  
+  .poll-options {
+    margin-top: 20px;
+  }
+  
+  .poll-options h3 {
+    margin-bottom: 10px;
+  }
+  
+  .poll-options ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .poll-options li {
+    margin-bottom: 5px;
+    font-size: 18px;
+  }
+  

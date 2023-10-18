@@ -13,7 +13,7 @@ function App() {
     return (
         <BrowserRouter>
         <div className="App">
-        <Header />
+            <Header />
             <Routes>
                 <Route path = "/" Component={LandingPage} />
                 <Route path = "poll" Component={PollPage} />
@@ -21,7 +21,7 @@ function App() {
                 <Route path = "polltimes" Component={PollPageTimes} />
                 <Route path = "pollcreate" Component={PollCreate} />
             </Routes>
-        <Footer />
+            <Footer />
         </div>
         </BrowserRouter>
     );

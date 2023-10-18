@@ -43,9 +43,11 @@ export default function PollPage() {
     <Div25>Next</Div25>
   </Link>
   <Img2
-    loading="lazy"
-    srcSet="..."
-  />
+  srcSet={`${process.env.PUBLIC_URL}/images/rarrow.png 1x`}
+  src={`${process.env.PUBLIC_URL}/images/rarrow.png`}
+  alt="Arrow"
+  loading="lazy"
+/>
 </Div24>
 
         </Div23>

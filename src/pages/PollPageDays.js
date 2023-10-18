@@ -30,13 +30,12 @@ export default function PollPageDays() {
                 />
               </Div14>
             </Div12>
+            
             <Div16>
-              <Img3
-                loading="lazy"
-                srcSet="..."
-              />
+            <RoundedCheckbox type="checkbox" />
               <Div17>Allow multiple answers</Div17>
             </Div16>
+
           </Div6>
         </Div5>
         <Div18><Link to="/poll">
@@ -48,9 +47,11 @@ export default function PollPageDays() {
     <Div22>Next</Div22>
       </Link>
       <Img4
-        loading="lazy"
-        srcSet="..."
-      />
+  srcSet={`${process.env.PUBLIC_URL}/images/rarrow.png 1x`}
+  src={`${process.env.PUBLIC_URL}/images/rarrow.png`}
+  alt="Arrow"
+  loading="lazy"
+/>
   </Div21>
 
           </Div20>
@@ -348,3 +349,18 @@ const Img4 = styled.img`
 `;
 
 
+const RoundedCheckbox = styled.input`
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 2px solid #555;
+  outline: none;
+  margin-right: 8px;
+  cursor: pointer;
+  position: relative;
+
+  &:checked {
+    background-color: #555;
+  }
+`;

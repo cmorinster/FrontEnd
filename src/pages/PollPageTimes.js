@@ -31,10 +31,8 @@ export default function PollPageTimes() {
               </Div14>
             </Div12>
             <Div16>
-              <Img3
-                loading="lazy"
-                srcSet="..."
-              />
+            <RoundedCheckbox type="checkbox" />
+
               <Div17>Allow multiple answers</Div17>
             </Div16>
           </Div6>
@@ -63,10 +61,8 @@ export default function PollPageTimes() {
               </Div27>
             </Div25>
             <Div29>
-              <Img6
-                loading="lazy"
-                srcSet="..."
-              />
+            <RoundedCheckbox type="checkbox" />
+
               <Div30>Allow multiple answers</Div30>
             </Div29>
           </Div19>
@@ -95,10 +91,8 @@ export default function PollPageTimes() {
               </Div40>
             </Div38>
             <Div42>
-              <Img9
-                loading="lazy"
-                srcSet="..."
-              />
+            <RoundedCheckbox type="checkbox" />
+
               <Div43>Allow multiple answers</Div43>
             </Div42>
           </Div32>
@@ -759,4 +753,26 @@ const Img10 = styled.img`
   margin-top: auto;
   margin-bottom: auto;
 `;
+
+const RoundedCheckbox = styled.input`
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 2px solid #555;
+  outline: none;
+  margin-right: 8px;
+  cursor: pointer;
+  position: relative;
+
+  &:checked {
+    background-color: #555;
+  }
+`;
+
+const CheckboxLabel = styled.label`
+  display: flex;
+  align-items: center;
+`;
+
 

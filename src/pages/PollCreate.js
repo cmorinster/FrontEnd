@@ -2,7 +2,7 @@ import * as React from "react";
 import { Link } from 'react-router-dom';
 import '../styling/PollCreate.css';
 
-export default function PollCreate() {
+export default function PollCreate({ eventData, setEventData, eventQuestions, setEventQuestions }) {
   return (
     <div className="poll-page">
       <div className="pollpage-title">Final Step</div>

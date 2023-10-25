@@ -2,7 +2,7 @@ import * as React from "react";
 import {Link} from 'react-router-dom';
 import '../styling/PollPageTimes.css';
 
-export default function PollPageTimes() {
+export default function PollPageTimes({ eventData, setEventData, eventQuestions, setEventQuestions }) {
   return (
     <div className="poll-page">
             {/* TODO: Add "allow multiple answers", JS functionality */}

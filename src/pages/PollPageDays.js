@@ -2,7 +2,7 @@ import * as React from "react";
 import { Link } from 'react-router-dom';
 import '../styling/PollPageDays.css';
 
-const PollPageDays = () => {
+const PollPageDays = ({ eventData, setEventData, eventQuestions, setEventQuestions }) => {
   return (
     <div className="poll-page">
                   {/* TODO: Add "allow multiple answers", JS functionality */}

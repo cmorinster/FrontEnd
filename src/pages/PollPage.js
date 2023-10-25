@@ -2,7 +2,7 @@ import * as React from "react";
 import { Link } from 'react-router-dom';
 import '../styling/PollPage.css';
 
-const PollPage = () => {
+const PollPage = ({ eventData, setEventData, eventQuestions, setEventQuestions }) => {
   return (
     <div className="poll-page">
       <div className="pollpage-title">Poll Details</div>
@@ -10,7 +10,14 @@ const PollPage = () => {
         <div className="modal-content">
           <form>
             <label htmlFor="name">Your Name*</label><br />
-            <input type="text" id="name" name="name" placeholder="Enter your name here" /><br />
+            <input type="text" id="name" name="name" placeholder="Enter your name here" 
+            //  value={eventData.creatorname}
+            //  onChange={(e) => {
+            //    setEventData({ ...eventData, creatorname: e.target.value });
+            //  }}
+            
+            
+            /><br />
 
             <label htmlFor="email">Your Email*</label><br />
             <input type="text" id="email" name="email" placeholder="Enter your email here" /><br />

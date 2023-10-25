@@ -1,65 +1,91 @@
+h2{
+  color: #000;
+font-family: Lora;
+font-size: 24px;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+text-align:start;
+}
+
+.polldays-title {
+  color: #000;
+  font-family: Lora;
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  text-align: center;}
+
+  /*TODO: Styling adjustments on text and button alignment*/
+
 .poll-page {
-    text-align: center;
-    padding: 40px;
-  }
-  
-  .modal {
-    display: block;
-    position: relative;
-    margin: 0 auto;
-    max-width: 600px;
-    text-align: left;
-    font-size: larger;
-  }
-  
-  .modal-content {
-    background-color: #F5F5F5;
-    padding: 30px;
-  }
-  
-  form {
-    display: flex;
-    flex-direction: column;
-    width: 70%;
-    margin: 0 auto; /* Set auto margins to center the form */
-  }
-  
-  form label {
-    margin-bottom: 6px;
-    text-align: left;
-  }
-  
-  form input,
-  form textarea {
-    padding: 10px;
-    margin-bottom: 6px;
-    width: 100%;
-    box-sizing: border-box;
-    border: 2px solid #D9D9D9;
-    background-color: #F5F5F5;
-  }
-  
-  .button-container {
-    display: flex;
-    justify-content: flex-end;
-    margin-top: 10px;
-  }
-  
-  .back-button,
-  .next-button {
-    padding: 8px 20px;
-    background-color: #D9D9D9;
-    color: black;
-    border: none;
-    cursor: pointer;
-    min-width: 130px;
-  }
-  
-  .checkbox-label {
-    font-size: 14px; /* Adjust the font size as needed */
-  }
-  
-  .allow-multiple-answers {
-    margin-top: 10px; /* Adjust the margin-top as needed for spacing */
-  }
-  
+  text-align: center;
+  padding: 40px;
+  margin-bottom: 80px;
+}
+
+.polldays-modal {
+  width: 748px;
+height: 403px;
+flex-shrink: 0;
+  border-radius: 20px;
+  border: 1px solid #d9d9d9;
+  background: #fff;
+  padding:90px;
+  margin: 0 auto; /* Center the modal */
+  align-items:center;
+}
+
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+form label {
+  margin-bottom: 6px;
+  text-align: left;
+  color: #000;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+form input,
+form textarea,
+select {
+  display: flex;
+width: 556px;
+height: 50px;
+padding: 15px 16px;
+align-items: center;
+gap: 10px;
+border-radius: 4px;
+border: 1px solid #D9D9D9;
+}
+
+/* TODO: Adjust button alignment, finish stylizing buttons (back specifically)*/
+.button-container {
+  display: flex;
+  justify-content: center; 
+}
+
+.back-button,
+.next-button {
+  height: 50px;
+  padding: 16px 32px;
+  border-radius: 30px;
+  background: #FFF37D;
+  border: none;
+  margin-top: 50px;
+}
+
+.back-button {
+  margin-right: 5px;
+}
+
+.next-button {
+  margin-left: 5px;
+}

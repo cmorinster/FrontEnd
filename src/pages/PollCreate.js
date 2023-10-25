@@ -1,30 +1,38 @@
-import React from 'react';
+import * as React from "react";
+import {Link} from 'react-router-dom';
 import '../styling/PollCreate.css';
 
-const PollCreate = () => {
-  // Assuming the user's selected days and times are stored in arrays
-  const selectedDays = ["Monday", "Tuesday", "Wednesday"];
-  const selectedTimes = ["10:00 AM", "1:00 PM", "3:00 PM"];
-
+export default function PollCreate() {
   return (
-    <div className="finished-poll-page">
-      <h2>Let's create your poll!</h2>
-      <div className="poll-options">
-        <h3>Selected Days:</h3>
-        <ul>
-          {selectedDays.map((day, index) => (
-            <li key={index}>{day}</li>
-          ))}
-        </ul>
-        <h3>Selected Times:</h3>
-        <ul>
-          {selectedTimes.map((time, index) => (
-            <li key={index}>{time}</li>
-          ))}
-        </ul>
-      </div>
-    </div>
-  );
-};
+    <div className="poll-page">
+      <div className="pollpage-title">Final Step</div>
+      <div className="pollcreate-modal">
+        <div className="modal-content">
+          <form>
+            <label htmlFor="name">Your Name*</label><br />
+            <input type="text" id="name" name="name" placeholder="Enter your name here" /><br />
 
-export default PollCreate;
+            <label htmlFor="email">Your Email*</label><br />
+            <input type="text" id="email" name="email" placeholder="Enter your email here" /><br />
+
+            <label htmlFor="pollName">Poll Name*</label><br />
+            <input type="text" id="pollName" name="pollName" placeholder="Enter your poll name here" /><br />
+
+            <label htmlFor="timeZone">Time Zone (Optional)</label><br />
+            <select id="timeZone" name="timeZone">
+              <option value="">- Select -</option>
+              <option value="Red">Red</option>
+              <option value="Blue">Blue</option>
+              <option value="Green">Green</option>
+            </select>
+
+            <label htmlFor="description">Description (Optional)</label><br />
+            <textarea id="description" name="description" rows="4" cols="50" placeholder="Enter a more detailed description here..."></textarea><br />
+          </form>
+        </div>
+      </div>
+      <button type="submit">Next</button>
+      </div>
+  );
+}
+

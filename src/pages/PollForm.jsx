@@ -15,18 +15,19 @@ export default function PollForm() {
     
 });
     const [eventQuestions, setEventQuestions] = useState({});
+    const [eventDays, setEventDays] = useState(1);
 
         
 
     const PageDisplay = () => {
         if (page === 0) {
-          return <PollPage eventData={eventData} setEventData={setEventData} eventQuestions ={eventQuestions} setEventQuestions={setEventQuestions} />;
+          return <PollPage eventData={eventData} setEventData={setEventData} eventQuestions ={eventQuestions} setEventQuestions={setEventQuestions} eventDays ={eventDays} setEventDays ={setEventDays}/>;
         } else if (page === 1) {
-          return <PollPageDays eventData={eventData} setEventData={setEventData} eventQuestions ={eventQuestions} setEventQuestions={setEventQuestions} />;
+          return <PollPageDays eventData={eventData} setEventData={setEventData} eventQuestions ={eventQuestions} setEventQuestions={setEventQuestions} eventDays ={eventDays} setEventDays ={setEventDays}/>;
         } else if (page === 2){
-          return <PollPageTimes eventData={eventData} setEventData={setEventData} eventQuestions ={eventQuestions} setEventQuestions={setEventQuestions}  />;
+          return <PollPageTimes eventData={eventData} setEventData={setEventData} eventQuestions ={eventQuestions} setEventQuestions={setEventQuestions} eventDays ={eventDays} setEventDays ={setEventDays} />;
         } else {
-          return <PollCreate eventData={eventData} setEventData={setEventData} eventQuestions ={eventQuestions} setEventQuestions={setEventQuestions} />;  
+          return <PollCreate eventData={eventData} setEventData={setEventData} eventQuestions ={eventQuestions} setEventQuestions={setEventQuestions}eventDays ={eventDays} setEventDays ={setEventDays} />;  
         }
         
       };

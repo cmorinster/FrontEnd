@@ -2,7 +2,7 @@ import * as React from "react";
 import { Link } from 'react-router-dom';
 import '../styling/PollPage.css';
 
-const PollPage = ({ eventData, setEventData, eventQuestions, setEventQuestions }) => {
+const PollPage = ({ eventData, setEventData, eventQuestions, setEventQuestions, eventDays, setEventDays }) => {
   return (
     <div className="poll-page">
       <div className="pollpage-title">Poll Details</div>
@@ -11,19 +11,30 @@ const PollPage = ({ eventData, setEventData, eventQuestions, setEventQuestions }
           <form>
             <label htmlFor="name">Your Name*</label><br />
             <input type="text" id="name" name="name" placeholder="Enter your name here" 
-            //  value={eventData.creatorname}
-            //  onChange={(e) => {
-            //    setEventData({ ...eventData, creatorname: e.target.value });
-            //  }}
+            value={eventData.creatorname}
+             onChange={(e) => {
+             setEventData({ ...eventData, creatorname: e.target.value });
+            }}
             
             
             /><br />
 
             <label htmlFor="email">Your Email*</label><br />
-            <input type="text" id="email" name="email" placeholder="Enter your email here" /><br />
+            <input type="text" id="email" name="email" placeholder="Enter your email here" 
+            value={eventData.creatoremail}
+            onChange={(e) => {
+            setEventData({ ...eventData, creatoremail: e.target.value });
+               }}
+            
+            /><br />
 
             <label htmlFor="pollName">Poll Name*</label><br />
-            <input type="text" id="pollName" name="pollName" placeholder="Enter your poll name here" /><br />
+            <input type="text" id="pollName" name="pollName" placeholder="Enter your poll name here" 
+               value={eventData.eventname}
+               onChange={(e) => {
+               setEventData({ ...eventData, eventname: e.target.value });
+                  }}
+            /><br />
 
             <label htmlFor="timeZone">Time Zone (Optional)</label><br />
             <select id="timeZone" name="timeZone">
@@ -34,7 +45,12 @@ const PollPage = ({ eventData, setEventData, eventQuestions, setEventQuestions }
             </select>
 
             <label htmlFor="description">Description (Optional)</label><br />
-            <textarea id="description" name="description" rows="4" cols="50" placeholder="Enter a more detailed description here..."></textarea><br />
+            <textarea id="description" name="description" rows="4" cols="50" placeholder="Enter a more detailed description here..."
+            value={eventData.polldescription}
+               onChange={(e) => {
+               setEventData({ ...eventData, polldescription: e.target.value });
+                  }}
+              ></textarea><br />
           </form>
         </div>
       </div>

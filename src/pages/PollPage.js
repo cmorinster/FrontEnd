@@ -54,7 +54,6 @@ const PollPage = ({ eventData, setEventData, eventQuestions, setEventQuestions, 
           </form>
         </div>
       </div>
-      <button type="submit">Next</button>
       </div>
   );
 };

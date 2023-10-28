@@ -1,84 +1,107 @@
-import React, {useEffect, useState} from 'react';
-import { Link } from 'react-router-dom';
-import '../styling/PollPageDays.css';
-import Question from '../components/Question';
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import "../styling/PollPageDays.css";
 
-const DaySelector = ({ onChange, disabledOptions=[] }) => {
-  const [selected, setSelected] = useState("");
+const DaySelector = ({ onChange, disabledOptions = [], disabled, value }) => {
   return (
-    <select onChange={(e) => {
-      onChange(e.target.value, []);
-      setSelected(e.target.value);
-    }
-      
-    }>
-      {disabledOptions.includes("sunday") && selected !== "sunday" ? null : (
+    <select
+      disabled={disabled}
+      onChange={(e) => {
+        onChange(e.target.value, []);
+      }}
+    >
+      {disabledOptions.includes("sunday") && value !== "sunday" ? null : (
         <option value="sunday">Sunday</option>
       )}
-      {disabledOptions.includes("monday") && selected !== "monday" ? null : (
+      {disabledOptions.includes("monday") && value !== "monday" ? null : (
         <option value="monday">Monday</option>
       )}
-      {disabledOptions.includes("tuesday") && selected !== "tuesday" ? null : (
+      {disabledOptions.includes("tuesday") && value !== "tuesday" ? null : (
         <option value="tuesday">Tuesday</option>
       )}
-      {disabledOptions.includes("wednesday") &&
-      selected !== "wednesday" ? null : (
+      {disabledOptions.includes("wednesday") && value !== "wednesday" ? null : (
         <option value="wednesday">Wednesday</option>
       )}
-      {disabledOptions.includes("thursday") &&
-      selected !== "thursday" ? null : (
+      {disabledOptions.includes("thursday") && value !== "thursday" ? null : (
         <option value="thursday">Thursday</option>
       )}
-      {disabledOptions.includes("friday") && selected !== "friday" ? null : (
+      {disabledOptions.includes("friday") && value !== "friday" ? null : (
         <option value="friday">Friday</option>
       )}
-      {disabledOptions.includes("saturday") &&
-      selected !== "saturday" ? null : (
+      {disabledOptions.includes("saturday") && value !== "saturday" ? null : (
         <option value="saturday">Saturday</option>
       )}
     </select>
-  )
+  );
+};
+
+const days = [
+  "sunday",
+  "monday",
+  "tuesday",
+  "wednesday",
+  "thursday",
+  "friday",
+  "saturday",
+];
+
+const getNextAvailableDay = (currentValues) => {
+  return days.find((day) => !currentValues.includes(day));
+};
+
+export default function PollPageDays({ eventQuestions, onChange, onRemove }) {
+  const [valueToAdd, setValueToAdd] = useState("sunday");
+  const disabledOptions = eventQuestions.map(({ day }) => day);
+  const allowMoreQuestions = eventQuestions.length < 7;
+
+  return (
+    <>
+      {allowMoreQuestions ? (
+        <div style={{ display: "flex", alignItems: "center", gap: "32px" }}>
+          <DaySelector
+            onChange={(value) => setValueToAdd(value)}
+            disabledOptions={disabledOptions}
+            defaultValue="sunday"
+          />
+          <button
+            onClick={() => {
+              onChange(valueToAdd, []);
+              setValueToAdd(
+                getNextAvailableDay([
+                  ...eventQuestions.map(({ day }) => day),
+                  valueToAdd,
+                ])
+              );
+            }}
+          >
+            Add Day
+          </button>
+        </div>
+      ) : null}
+      {eventQuestions.map((item, idx) => (
+        <>
+          <h3>{item.day}</h3>
+          <button
+            style={{ background: "#FF000020" }}
+            onClick={() => onRemove(item.day)}
+          >
+            remove
+          </button>
+        </>
+        // <DaySelector
+        //   key={`${item.day}-${idx}`}
+        //   {...item}
+        //   onChange={onChange}
+        //   disabled
+        //   disabledOptions={disabledOptions}
+        //   value={item.day}
+        // />
+      ))}
+    </>
+  );
 }
-export default function PollPageDays ({ eventQuestions, onChange })  { 
-    const disabledOptions = eventQuestions.map(({ day }) => day)
-    const allowMoreQuestions = eventQuestions.length < 7;
-  
-    return (
-      <>
-        {eventQuestions.map((item, idx) => (
-          <DaySelector key={idx} {...item} onChange={onChange} disabledOptions={disabledOptions}/>
-        ))}
-        {allowMoreQuestions ? <DaySelector onChange={onChange} disabledOptions={disabledOptions}/> : null}
-      </>
-    );
-  };
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//   // how do i identify the which one im in, i have a counter in the for loop.  
+//   // how do i identify the which one im in, i have a counter in the for loop.
 //   function handleChange(e){
 //     const questionsDict = eventQuestions
 //     const checker = true
@@ -87,17 +110,16 @@ export default function PollPageDays ({ eventQuestions, onChange })  {
 //   }
 //   //react hook form
 
-  
 //   return (
 
 //     <div className="poll-page">
 //                   {/* TODO: Add "allow multiple answers", JS functionality */}
-                 
+
 //       <div className="polldays-title">Enter days to suggest for your event!</div>
 //       <div className="polldays-modal">
-  
+
 //         <div className="modal-content">
-//     <form  
+//     <form
 //     >
 //       <h2>Options:</h2>
 //       <label htmlFor="timeZone">Add Day*</label><br />
@@ -125,5 +147,3 @@ export default function PollPageDays ({ eventQuestions, onChange })  {
 //     </div>
 //   );
 // };
-
-

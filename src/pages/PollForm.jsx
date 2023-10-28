@@ -15,27 +15,35 @@ export default function PollForm() {
   });
   const [eventQuestions, setEventQuestions] = useState([]);
   // const [eventDays, setEventDays] = useState(2);
+
+  const onRemove = (changedDay) => {
+    const newData = [...eventQuestions];
+    const dayIndex = eventQuestions.findIndex(({ day }) => day === changedDay);
+    if (dayIndex >= 0) {
+      newData.splice(dayIndex, 1);
+      setEventQuestions(newData);
+    }
+  };
   const onChange = (changedDay, times) => {
     const newData = [...eventQuestions];
     const dayIndex = eventQuestions.findIndex(({ day }) => day === changedDay);
-    console.log(dayIndex)
+    console.log(dayIndex);
     if (dayIndex === -1) {
       const newDayData = {
-        day:changedDay,
-        times
-      }
-      
+        day: changedDay,
+        times,
+      };
+
       setEventQuestions(newData.concat(newDayData));
     } else {
       newData.splice(dayIndex, 1, {
-        day:changedDay, 
-        times
-      })
-      setEventQuestions(newData)
+        day: changedDay,
+        times,
+      });
+      setEventQuestions(newData);
     }
-    console.log(eventQuestions)
+    console.log(eventQuestions);
   };
-
 
   const PageDisplay = () => {
     if (page === 0) {
@@ -45,7 +53,6 @@ export default function PollForm() {
           setEventData={setEventData}
           eventQuestions={eventQuestions}
           setEventQuestions={setEventQuestions}
-
         />
       );
     } else if (page === 1) {
@@ -53,8 +60,7 @@ export default function PollForm() {
         <PollPageDays
           eventQuestions={eventQuestions}
           onChange={onChange}
-          
-
+          onRemove={onRemove}
         />
       );
     } else if (page === 2) {
@@ -64,7 +70,6 @@ export default function PollForm() {
           setEventData={setEventData}
           eventQuestions={eventQuestions}
           setEventQuestions={setEventQuestions}
-
         />
       );
     } else {
@@ -74,7 +79,6 @@ export default function PollForm() {
           setEventData={setEventData}
           eventQuestions={eventQuestions}
           setEventQuestions={setEventQuestions}
-
         />
       );
     }
